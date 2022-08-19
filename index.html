@@ -1,0 +1,111 @@
+<html>
+<head>
+<title>
+Mathematical Conversions
+</title>
+<style>
+h1
+{
+text-align:center;
+color:red;
+}
+table
+{
+margin:auto;
+height:40%;
+background-color:skyblue;
+border-radius:20px;
+}
+.abc
+{
+height:40px;
+}
+</style>
+<script>
+function calculate()
+{
+var x=parseFloat(document.getElementById("num").value);
+var ch=parseInt(document.getElementById("choice").value);
+if(isNaN(x))
+{
+alert("Only numbers are accepted");
+}
+else if(ch==-1)
+{
+alert("Please choose a proper conversion choice");
+}
+else
+{
+switch(ch)
+{
+case 1: feetToInch(x);break;
+case 2: inchToFeet(x);break;
+case 3: inchToCm(x);break;
+case 4: cmToInch(x);break;
+case 5: cmToFeet(x);break;
+case 6: feetToCm(x); break;
+}//End of switch
+}//End of else
+}//End of function
+
+function feetToInch(feet)
+{
+document.getElementById("output").value=feet*12+" inches";
+}
+
+function inchToFeet(inch)
+{
+document.getElementById("output").value=inch/12+" feet";
+}
+
+function inchToCm(inch)
+{
+document.getElementById("output").value=inch*2.54+" cm";
+}
+
+function cmToInch(cm)
+{
+document.getElementById("output").value=cm/2.54+" inch";
+}
+
+function cmToFeet(cm)
+{
+document.getElementById("output").value=(cm/2.54)/12+" feet";
+}
+
+
+function feetToCm(feet)
+{
+document.getElementById("output").value=(feet*12)*2.54+" cm";
+}
+</script>
+</head>
+<body bgcolor=cyan>
+<h1>Mathematical Conversions!!!</h1>
+<table>
+<tr>
+	<td>Convert</td>
+	<td><input type=text id=num class=abc></td>
+	<td>
+		<select id="choice" class=abc>
+		<option value=-1>Select</option>
+		<option value=1>Feet to Inch</option>
+		<option value=2>Inch to Feet</option>
+		<option value=3>Inch to cm</option>
+		<option value=4>cm to Inch</option>
+		<option value=5>cm to Feet</option>
+		<option value=6>Feet to cm</option>
+		</select>
+	</td>
+	<td>
+		<input type=button value="CONVERT" class=abc onclick=calculate()>
+	</td>
+</tr>
+<tr>
+	<td colspan=2 align=center>
+		Output
+	</td>
+	<td colspan=2 align=center>
+		<input type=text id="output" disabled class=abc>
+	</td>
+</table>
